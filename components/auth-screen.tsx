@@ -35,7 +35,7 @@ export function AuthScreen({ onAuthenticated }: { onAuthenticated: (role: Role) 
           <div className="flex size-16 items-center justify-center rounded-3xl bg-primary text-primary-foreground shadow-sm">
             <Sprout className="size-8" aria-hidden="true" />
           </div>
-          <h1 className="mt-4 text-pretty text-2xl font-bold text-foreground">สวนส้มของเรา</h1>
+          <h1 className="mt-4 text-pretty text-2xl font-bold text-foreground">Orange Mk</h1>
           <p className="mt-1 text-base text-muted-foreground">ระบบติดตามและจัดการสวนส้ม</p>
         </div>
 

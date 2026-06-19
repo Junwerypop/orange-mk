@@ -4,7 +4,6 @@ import { createContext, useContext } from "react"
 import {
   Map,
   TrendingUp,
-  Citrus,
   RefreshCw,
   Settings,
   Tag,
@@ -17,11 +16,36 @@ export type UserRole = "owner" | "buyer"
 
 export type TabId = "map" | "price" | "orchard" | "update" | "settings" | "pricing" | "listings"
 
-const NAV_ITEMS: Record<UserRole, { id: TabId; label: string; icon: LucideIcon }[]> = {
+// Custom orange fruit icon (replaces Citrus/watermelon)
+function OrangeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      {/* Leaf */}
+      <path d="M12 4 C13 2, 15.5 2, 16 3.5" strokeWidth="1.5" />
+      {/* Orange circle */}
+      <circle cx="12" cy="13" r="8" />
+      {/* Segment lines */}
+      <path d="M12 5 Q14 9 12 13 Q10 9 12 5" strokeWidth="1" opacity="0.55" />
+      <path d="M4.1 10 Q8.5 11.5 12 13 Q8 15.5 4.1 10" strokeWidth="1" opacity="0.55" />
+      <path d="M19.9 10 Q15.5 11.5 12 13 Q16 15.5 19.9 10" strokeWidth="1" opacity="0.55" />
+    </svg>
+  )
+}
+
+const NAV_ITEMS: Record<UserRole, { id: TabId; label: string; icon: LucideIcon | typeof OrangeIcon }[]> = {
   owner: [
     { id: "map", label: "แผนที่", icon: Map },
     { id: "price", label: "ราคาตลาดไท", icon: TrendingUp },
-    { id: "orchard", label: "สวนของฉัน", icon: Citrus },
+    { id: "orchard", label: "สวนของฉัน", icon: OrangeIcon },
     { id: "update", label: "อัพเดตสถานะ", icon: RefreshCw },
     { id: "settings", label: "ตั้งค่า", icon: Settings },
   ],
